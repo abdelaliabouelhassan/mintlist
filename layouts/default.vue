@@ -1,6 +1,8 @@
 <template>
-  <main>
-    <slot></slot>
+  <main class=" w-full h-screen ">
+   <div class=" w-full">
+     <slot></slot>
+   </div>
   </main>
 </template>
 
@@ -13,7 +15,7 @@
   top: 0;
   left: 0;
   right: 0;
-  transition: all 150ms linear;
+  transition: all 360ms linear;
 }
 
 .page-left-enter-from, .page-right-leave-to {

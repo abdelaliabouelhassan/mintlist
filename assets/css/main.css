@@ -1,10 +1,47 @@
-.page {
+/* .page {
     min-height: 100vh;
     width: min(95vw, 700px);
     margin: 0 auto;
     padding: 1rem;
+  } */
+
+  @font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNova-Regular.otf') format('opentype'); /* Path to the regular font file */
+    font-weight: normal;
+    font-style: normal;
   }
+  
+
+  @font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNovaBold.otf') format('opentype'); /* Path to the regular font file */
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNovaExtrabold.otf') format('opentype'); /* Path to the regular font file */
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/ProximaNovaThin.otf') format('opentype'); /* Path to the regular font file */
+    font-weight: 100;
+    font-style: normal;
+  }
+  
   
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+body {
+  --ease-fn: cubic-bezier(0.16,1,0.3,1);
+  background-color: #2f2f2f;
+}

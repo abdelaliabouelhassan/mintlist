@@ -9,7 +9,17 @@ module.exports = {
     "./app.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        background:'#2f2f2f',
+        primary:'#ea3466',
+        secondary:'#ffb74b',
+        tertiary:'#36bbbc'
+      },
+      fontFamily:{
+        pnova:['Proxima Nova']
+      }
+    },
   },
   plugins: [],
 }
