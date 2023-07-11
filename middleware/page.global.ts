@@ -4,11 +4,7 @@
 
 export default defineNuxtRouteMiddleware((to, from) => {
 
-  const counter = useDirection();
-
- 
-
- 
+  const counter = useDirection(); 
   // 0 = back & 1 next
   if (counter.value === 1) {
     to.meta.pageTransition = { name: 'page-left' };
@@ -17,4 +13,5 @@ export default defineNuxtRouteMiddleware((to, from) => {
     to.meta.pageTransition = { name: 'page-right' };
     from.meta.pageTransition = { name: 'page-right' };
   }
+  
 })

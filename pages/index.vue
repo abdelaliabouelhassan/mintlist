@@ -16,11 +16,14 @@
                 Next
               </button>
             </div>
+           <div class=" pt-20 w-full">
+             <Footer />
+           </div>
           </div>
 
 
           <!-- Right -->
-          <div class=" w-full relative max-w-[800px] pb-24">
+          <div class=" w-full relative max-w-[800px] pb-28">
               <UICirclesContainerone  ref="UICirclesContaineroneRef" :animation="animation" photo="https://cdn.mintlist.com/consumer/jumping-man-1.png" />
           </div>
         </div>

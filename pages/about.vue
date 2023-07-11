@@ -23,7 +23,12 @@
           <div class=" w-full relative max-w-[800px] pb-24">
               <UICirclesContainerone  ref="UICirclesContaineroneRef" :animation="animation" photo="https://cdn.mintlist.com/consumer/jumping-man-1.png" />
           </div>
+          
         </div>
+
+        <div class=" h-20 bg-red-500" v-for=" n in 50" :key="n">
+dsfd
+          </div>
     </Container>
 </template>
 
