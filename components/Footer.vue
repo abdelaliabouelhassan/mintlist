@@ -1,6 +1,6 @@
 <template>
     <div class=" w-full  flex flex-col items-start space-y-2">
-        <div class=" w-full flex justify-between items-baseline">
+        <div class=" w-full flex sm:flex-row flex-col items-start space-y-3 sm:space-y-0 sm:justify-between sm:items-baseline">
             <img class=" w-[103px]" src="https://cdn.mintlist.com/consumer/mintlist-logo.png" alt="">
             <div class=" flex items-center gap-[20px] text-xs text-[#9e9e9e] max-w-[245.88px] w-full">
                 <a href="">Buy</a>
@@ -33,7 +33,7 @@
                 </a>
             </div>
         </div>
-         <div class=" w-full border-t border-[#d9d9d9] text-[#9e9e9e] font-medium font-pnova text-xs pt-2 space-y-4">
+         <div class=" w-full border-t border-[#d9d9d9] text-[#9e9e9e] font-medium font-pnova text-xs pt-2 space-y-2 sm:space-y-0 md:space-y-4 flex sm:items-center flex-col sm:flex-row justify-between  md:flex-col md:items-start">
             <div class=" flex items-center space-x-4 ">
                 <a href="">Privacy</a>
                 <div class=" w-px bg-[#9e9e9e] h-[10px]"></div>

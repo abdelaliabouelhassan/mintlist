@@ -2,7 +2,7 @@
     <Container class=" w-full h-full">
         <div class=" w-full flex justify-between gap-[50px] pt-5">
           <!-- left -->
-          <div class=" w-full max-w-[400px] flex flex-col items-start space-y-12 pt-16">
+          <div class=" w-full md:max-w-[400px] flex flex-col items-start space-y-12 pt-16">
             <p class=" text-white text-[64px] leading-[70px] font-extrabold font-pnova">
               We've made <span class=" text-[#36bbbc]">selling and trading</span> your car easy<span  class=" text-[#36bbbc]">.</span>
             </p>
@@ -23,7 +23,7 @@
 
 
           <!-- Right -->
-          <div class=" w-full relative max-w-[800px] pb-28">
+          <div class=" w-full relative max-w-[800px] pb-28 hidden md:block">
               <UICirclesContainerone  ref="UICirclesContaineroneRef" :animation="animation" photo="https://cdn.mintlist.com/consumer/jumping-man-1.png" />
           </div>
         </div>
