@@ -18,15 +18,24 @@
   transition: all 360ms linear;
 }
 
-.page-left-enter-from, .page-right-leave-to {
+.page-left-enter-from  {
   transform: translateX(100%);
+  background-color: #2f2f2f;
 }
 
-.page-left-leave-to, .page-right-enter-from {
+.page-right-leave-to {
+background-color: black;
+}
+.page-left-leave-to {
+background-color: black;
+}
+.page-right-enter-from {
   transform: translateX(-100%);
+  background-color: #2f2f2f;
 }
 
 .page-left-enter-to, .page-right-enter-to {
   transform: translateX(0);
+  background-color: #2f2f2f;
 }
 </style>
