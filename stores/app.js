@@ -10,6 +10,9 @@
         mileage:'',
         postal_code:'',
         options:[]
+      },
+      vehicle_condition:{
+        condition:'',
       }
     })
 
@@ -24,6 +27,9 @@
         mileage:'',
         postal_code:'',
         options:[]
+      }
+      form.value.vehicle_condition = {
+        condition:'',
       }
     }
    

@@ -9,12 +9,16 @@
                 Step 2 of 4:
              </p>
              <p class=" text-white font-extrabold font-pnova text-[64px] leading-[70px]">
-                Tell us more about your vehicle<span class=" text-tertiary">.</span>
+               What kind of condition is your vehicle in<span class=" text-tertiary">?</span>
              </p>
            </div>
             <div class=" w-full">
-                <Step1 v-show="step === 1" @Next="Next" @Back="Back"  />
-                <Step2 v-show="step === 2" @Next="Next" @Back="Back"  />
+               <transition name="fade">
+                  <Step1 v-show="step === 1" @Next="Next" @Back="Back"  />
+               </transition>
+                <transition name="fade">
+                   <Step2 v-show="step === 2" @Next="Next" @Back="Back"  />
+               </transition>
             </div>
 
            <div class=" pt-8 w-full">
@@ -32,8 +36,10 @@
 </template>
 
 <script setup lang="ts">
-  import Step1 from "@/components/partials/onboarding/vehicle-info/Step1.vue"
-  import Step2 from "@/components/partials/onboarding/vehicle-info/Step2.vue"
+  import Step1 from "@/components/partials/onboarding/vehicle-condition/Step1.vue"
+  import Step2 from "@/components/partials/onboarding/vehicle-condition/Step2.vue"
+   import { useAppStore } from '@/stores/app';
+  const store = useAppStore();
   const step = ref(1);
   const Direction = useDirection();
   const router = useRouter();
@@ -43,16 +49,27 @@
   }
   const Back = () => {
 
-   if(step.value === 2) {
-    step.value = 1;
+   if(step.value > 1) {
+    step.value--;
     return;
    }
     animation.value = "animation-from-top";
    Direction.value = 0;
    setTimeout(()=>{
-    router.push('/')
+    router.push('/onboarding/vehicle-info/?returnFromNext=1')
    },600)
   }
+
+   onMounted(()=>{
+      //returnFromNext 
+      if(router.currentRoute.value.query.returnFromNext) {
+      //  step.value = 2;
+      }
+     if(localStorage.getItem('form')){
+         const form = JSON.parse(localStorage.getItem('form'));
+         store.$state.form.vehicle_info = form.vehicle_info;
+    }
+  })
 
 
 </script>

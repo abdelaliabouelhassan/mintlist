@@ -13,8 +13,14 @@
              </p>
            </div>
             <div class=" w-full">
-                <Step1 v-if="step === 1" @Next="Next" @Back="Back"  />
-                <Step2 v-if="step === 2" @Next="Next" @Back="Back"  />
+               <transition name="fade">
+                <Step1 :key="step" v-show="step === 1" @Next="Next" @Back="Back" />
+              </transition>
+              <transition name="fade">
+                <Step2 :key="step" v-show="step === 2" @Next="Next" @Back="Back" />
+              </transition>
+                <!-- <Step1 v-if="step === 1" @Next="Next" @Back="Back"  />
+                <Step2 v-if="step === 2" @Next="Next" @Back="Back"  /> -->
             </div>
 
            <div class=" pt-8 w-full">
@@ -34,6 +40,8 @@
 <script setup lang="ts">
   import Step1 from "@/components/partials/onboarding/vehicle-info/Step1.vue"
   import Step2 from "@/components/partials/onboarding/vehicle-info/Step2.vue"
+  import { useAppStore } from '@/stores/app';
+  const store = useAppStore();
   const step = ref(1);
   const Direction = useDirection();
   const router = useRouter();
@@ -61,6 +69,18 @@
     router.push('/')
    },600)
   }
+
+
+  onMounted(()=>{
+    //returnFromNext 
+    if(router.currentRoute.value.query.returnFromNext) {
+      step.value = 2;
+    }
+     if(localStorage.getItem('form')){
+         const form = JSON.parse(localStorage.getItem('form'));
+        store.$state.form.vehicle_info = form.vehicle_info;
+    }
+  })
 
 
 </script>

@@ -80,11 +80,6 @@
          for (let i = 1981; i <= currentYear; i++) {
          years.value.push(i);
         }
-
-         if(localStorage.getItem('form')){
-               const form = JSON.parse(localStorage.getItem('form'));
-               store.$state.form.vehicle_info = form.vehicle_info;
-         }
      })
 </script>
 

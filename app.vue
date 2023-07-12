@@ -15,9 +15,9 @@
 
 onMounted(()=>{
    
-   if(Step.value === 0) {
-      Direction.value = 0;
-      router.push('/');
-   }
+   // if(Step.value === 0) {
+   //    Direction.value = 0;
+   //    router.push('/');
+   // }
 })
 </script>

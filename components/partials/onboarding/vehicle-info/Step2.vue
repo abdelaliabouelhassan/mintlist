@@ -1,7 +1,7 @@
 <template>
     <div class=" w-full flex flex-col items-start space-y-4">
         <div class=" w-full pt-5">
-            <UICard />
+            <Card />
         </div>
         <div class=" w-full pb-10 pt-2">
             <UIBaseButton @click="$emit('Back')"  class=" text-white bg-[#6b6b6b] rounded-[0.75em] text-lg font-bold py-[14px] px-8 border border-[#6b6b6b] hover:bg-tertiary  hover:border-tertiary">Back</UIBaseButton>
@@ -33,6 +33,7 @@
 
 
 <script setup>
+     import Card from "@/components/UI/Card.vue"
      import { useAppStore } from '@/stores/app';
      const store = useAppStore();
 
@@ -69,11 +70,5 @@
        return  store.$state.form.vehicle_info.options.includes(option);
     };
 
-    onMounted(()=> {
-         if(localStorage.getItem('form')){
-               const form = JSON.parse(localStorage.getItem('form'));
-               store.$state.form.vehicle_info = form.vehicle_info;
-         }
-     })
 </script>
 
