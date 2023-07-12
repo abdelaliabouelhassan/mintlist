@@ -40,8 +40,5 @@
    setTimeout(()=>{
     router.push('/onboarding/vehicle-info')
    },600)
-  }
-
-  
-  
+  }  
 </script>

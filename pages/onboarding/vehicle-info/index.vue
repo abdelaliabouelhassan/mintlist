@@ -76,10 +76,7 @@
     if(router.currentRoute.value.query.returnFromNext) {
       step.value = 2;
     }
-     if(localStorage.getItem('form')){
-         const form = JSON.parse(localStorage.getItem('form'));
-        store.$state.form.vehicle_info = form.vehicle_info;
-    }
+  
   })
 
 
