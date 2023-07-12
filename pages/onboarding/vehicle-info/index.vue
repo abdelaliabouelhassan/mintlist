@@ -13,8 +13,8 @@
              </p>
            </div>
             <div class=" w-full">
-                <Step1 v-show="step === 1" @Next="Next" @Back="Back"  />
-                <Step2 v-show="step === 2" @Next="Next" @Back="Back"  />
+                <Step1 v-if="step === 1" @Next="Next" @Back="Back"  />
+                <Step2 v-if="step === 2" @Next="Next" @Back="Back"  />
             </div>
 
            <div class=" pt-8 w-full">

@@ -18,14 +18,14 @@
 
 
             <div class=" w-full flex flex-wrap items-center gap-4 justify-start">
-                <button @click="Select(option)" v-for="(option,index,key) in options" :key="key" :class="{'text-[#006951] border-[#b2f0e2] bg-[#d7fff6]':checkIn(option)}" class=" text-sm whitespace-nowrap font-normal font-pnova text-[#2f2f2f] border border-[#d9d9d9] py-[5px] px-[10px] rounded-lg bg-white cursor-pointer focus:ring ring-tertiary">
+                <button @click="Select(option)" v-for="(option,index,key) in options" :key="key" :class="{'text-[#006951] border-[#b2f0e2] bg-[#d7fff6]':checkIn(option),'text-[#2f2f2f] border-[#d9d9d9] bg-white':!checkIn(option)}" class=" text-sm whitespace-nowrap font-normal font-pnova border  py-[5px] px-[10px] rounded-lg  cursor-pointer focus:ring ring-tertiary">
                     {{option}}
                 </button>
             </div>
         </div>
 
          <div class=" w-full pt-10">
-             <UIBaseButton @click="$emit('Next')"  class=" bg-primary hover:bg-[#ab2448] h-[54px] w-full rounded-full  text-center text-lg text-white font-bold border-primary  duration-300">{{selectedOptions.length > 0 ? 'Next' : 'Skip'}}</UIBaseButton> 
+             <UIBaseButton @click="$emit('Next')"  class=" bg-primary hover:bg-[#ab2448] h-[54px] w-full rounded-full  text-center text-lg text-white font-bold border-primary  duration-300">{{store.$state.form.vehicle_info.options.length > 0 ? 'Next' : 'Skip'}}</UIBaseButton> 
         </div>
     </div>
 </template>
@@ -33,7 +33,9 @@
 
 
 <script setup>
-     
+     import { useAppStore } from '@/stores/app';
+     const store = useAppStore();
+
      const options = ref([
         'Navigation',
         'All Wheel Drive / 4WD',
@@ -51,19 +53,27 @@
      ])
 
 
-    const selectedOptions = ref([])
 
     const Select = (option) => {
-        const index = selectedOptions.value.indexOf(option);
+        console.log( store.$state.form.vehicle_info.options)
+        const index = store.$state.form.vehicle_info.options.indexOf(option);
         if (index === -1) {
-            selectedOptions.value.push(option);
+             store.$state.form.vehicle_info.options.push(option);
         } else {
-            selectedOptions.value.splice(index, 1);
+             store.$state.form.vehicle_info.options.splice(index, 1);
         }
+        localStorage.setItem('form',JSON.stringify(store.$state.form))
     };
 
     const checkIn = (option) => {
-       return selectedOptions.value.includes(option);
+       return  store.$state.form.vehicle_info.options.includes(option);
     };
+
+    onMounted(()=> {
+         if(localStorage.getItem('form')){
+               const form = JSON.parse(localStorage.getItem('form'));
+               store.$state.form.vehicle_info = form.vehicle_info;
+         }
+     })
 </script>
 

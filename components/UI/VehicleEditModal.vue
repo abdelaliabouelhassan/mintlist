@@ -17,14 +17,14 @@
 
          <div class=" w-full flex flex-col items-start space-y-2 relative">
             <div class=" w-full flex flex-col items-start space-y-5 fieldWrapper ">
-               <UISelect :options="years" label="Year:" v-model="form.year" placeholder="Select a year" />
-                <UISelect :options="make" label="Make:" v-model="form.make" placeholder="Select a make" />
-                <UISelect :options="model" label="Model:" v-model="form.model" placeholder="Select a model" />
+               <UISelect :options="years" label="Year:" v-model="store.$state.form.vehicle_info.year" placeholder="Select a year" />
+                <UISelect :options="make" label="Make:" v-model="store.$state.form.vehicle_info.make" placeholder="Select a make" />
+                <UISelect :options="model" label="Model:" v-model="store.$state.form.vehicle_info.model" placeholder="Select a model" />
                 <div class=" grid gap-2 w-full grid-cols-1 sm:grid-cols-3" >
-                     <UIInput type="number" class=" sm:col-span-2"  label="Mileage:" v-model="form.mileage" placeholder="Please enter the mileage" />
-                     <UISelect :options="mileage" label="none" v-model="form.mileage_unit" placeholder="Select a unit" />
+                     <UIInput type="number" class=" sm:col-span-2"  label="Mileage:" v-model="store.$state.form.vehicle_info.mileage" placeholder="Please enter the mileage" />
+                     <UISelect :options="mileage" label="none" v-model="store.$state.form.vehicle_info.mileage_unit" placeholder="Select a unit" />
                 </div>
-                <UIInput type="text"  label="Postal code:" v-model="form.postal_code" placeholder="Please enter your postal code" />
+                <UIInput type="text"  label="Postal code:" v-model="store.$state.form.vehicle_info.postal_code" placeholder="Please enter your postal code" />
             </div>
         </div>
          <div class=" w-full grid md:grid-cols-2 gap-6 pt-10">
@@ -41,6 +41,8 @@
 
 
 <script setup>
+  import { useAppStore } from '@/stores/app';
+  const store = useAppStore();
   const show = ref(false)
   const years = ref([]);
      const make = ref([
@@ -75,29 +77,42 @@
         mileage:'',
         postal_code:''
      })
+
+
     
 
     const Cancel = () => {
+         if(localStorage.getItem('form')){
+                  const form = JSON.parse(localStorage.getItem('form'));
+                  store.$state.form.vehicle_info = form.vehicle_info;
+         }
         show.value = false
     }
     const Save = () => {
-        show.value = false
+        localStorage.setItem('form',JSON.stringify(store.$state.form))
+         show.value = false
     }
     const Open = () => {
         show.value = true;
     }
    
 
-     const isFormNotEmpty = computed(()=>{
-        const { year, make, model, mileage_unit, mileage, postal_code } = form.value;
+    const isFormNotEmpty = computed(()=>{
+        const { year, make, model, mileage_unit, mileage, postal_code } = store.$state.form.vehicle_info;
         return year !== '' && make !== '' && model !== '' && mileage_unit !== '' && mileage !== '' && postal_code !== '';
      })
 
+
      onMounted(()=> {
         const currentYear = new Date().getFullYear();
-        for (let i = 1981; i <= currentYear; i++) {
-        years.value.push(i);
+         for (let i = 1981; i <= currentYear; i++) {
+         years.value.push(i);
         }
+
+       if(localStorage.getItem('form')){
+               const form = JSON.parse(localStorage.getItem('form'));
+               store.$state.form.vehicle_info = form.vehicle_info;
+       }
      })
 
 

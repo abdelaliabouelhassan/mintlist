@@ -10,22 +10,22 @@
               <div class=" w-full flex items-center space-x-4">
                     <img src="https://cdn.mintlist.com/consumer/pelorous-car-icon.png" alt="">
                     <p class=" text-white font-bold text-[28px] leading-[25px] font-pnova">
-                        Honda 
-                        <span class=" font-normal">CR-V</span>
+                        {{store.$state.form.vehicle_info.make}} 
+                        <span class=" font-normal">{{store.$state.form.vehicle_info.model}}</span>
                     </p>
              </div>
              <div class=" w-full flex items-center gap-[6px] pt-2">
                 <div class=" bg-[rgba(40,114,111,.6)] text-[#fafafa] rounded-sm flex items-center gap-1 text-sm font-semibold font-pnova py-1 px-[10px]">
                    <img src="https://cdn.mintlist.com/consumer/date_range.svg" alt="">
-                    <span>2009</span>
+                    <span>{{store.$state.form.vehicle_info.year}}</span>
                 </div>
                  <div class=" bg-[rgba(40,114,111,.6)] text-[#fafafa] rounded-sm flex items-center gap-1 text-sm font-semibold font-pnova py-1 px-[10px]">
                    <img src="https://cdn.mintlist.com/consumer/speedometer.svg" alt="">
-                    <span>100 km</span>
+                    <span>{{store.$state.form.vehicle_info.mileage}} {{store.$state.form.vehicle_info.mileage_unit}}</span>
                 </div>
                  <div class=" bg-[rgba(40,114,111,.6)] text-[#fafafa] rounded-sm flex items-center gap-1 text-sm font-semibold font-pnova py-1 px-[10px]">
                    <img src="https://cdn.mintlist.com/consumer/location_on.svg" alt="">
-                    <span>40000</span>
+                    <span>{{store.$state.form.vehicle_info.postal_code}}</span>
                 </div>
              </div>
     </div>
@@ -34,6 +34,8 @@
 </template>
 
 <script setup>
+ import { useAppStore } from '@/stores/app';
+ const store = useAppStore();
  import ResetModal from "@/components/UI/ResetModal.vue"
  import VehicleEditModal from "@/components/UI/VehicleEditModal.vue"
  const ResetModalRef = ref(null)

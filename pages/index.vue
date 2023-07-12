@@ -29,10 +29,12 @@
 </template>
 
 <script setup lang="ts">
+  const Step = useStep();
   const Direction = useDirection();
   const router = useRouter();
   const animation = ref('animation-from-bottom')
   const Next = () => {
+   Step.value++;
    animation.value = "animation-from-top";
    Direction.value = 1;
    setTimeout(()=>{

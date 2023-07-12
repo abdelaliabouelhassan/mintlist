@@ -31,6 +31,8 @@
 
 
 <script setup>
+ import { useAppStore } from '@/stores/app';
+ const store = useAppStore();
  const Direction = useDirection();
  const router = useRouter();
  const show = ref(false)
@@ -42,8 +44,12 @@
  }
  const StartOver = () => {
    Direction.value = 1;
-   Close();
-   router.push('/')
+   if(localStorage.getItem('form')){
+     localStorage.removeItem('form')
+     store.resetForm();
+   }
+    Close();
+    router.push('/')
  }
  defineExpose({
     show,
