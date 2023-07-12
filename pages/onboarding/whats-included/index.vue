@@ -49,13 +49,13 @@
   const router = useRouter();
   const animation = ref('animation-from-bottom')
   const Next = () => {
-   if(step.value < 3){
+   if(step.value <= 3){
     step.value++;
    }else{
       animation.value = "animation-from-top";
       Direction.value = 1;
       setTimeout(()=>{
-      router.push('/onboarding/whats-included')
+      router.push('/onboarding/vehicle-info/?returnFromNext=1')
       },600)
    }
   }
