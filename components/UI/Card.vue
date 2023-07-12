@@ -24,7 +24,7 @@
                     <span>100 km</span>
                 </div>
                  <div class=" bg-[rgba(40,114,111,.6)] text-[#fafafa] rounded-sm flex items-center gap-1 text-sm font-semibold font-pnova py-1 px-[10px]">
-                   <img src="	https://cdn.mintlist.com/consumer/location_on.svg" alt="">
+                   <img src="https://cdn.mintlist.com/consumer/location_on.svg" alt="">
                     <span>40000</span>
                 </div>
              </div>
