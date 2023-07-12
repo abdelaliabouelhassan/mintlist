@@ -3,7 +3,7 @@
     <div
       class="w-[590px] h-[590px] rounded-full bg-secondary absolute left-[0px] top-[100px] z-20 overflow-hidden" :class="animation"
     >
-    <img src="https://cdn.mintlist.com/consumer/girl-car-1.png" class=" absolute left-[70px] top-[70px] animation-from-bottom"  alt="">
+    <img :src="photo" class=" absolute left-[70px] top-[70px] animation-from-bottom"  alt="">
     </div>
     <div
       class="w-[417px] h-[417px] rounded-full bg-primary absolute left-[250px] top-[570px]" :class="animation"

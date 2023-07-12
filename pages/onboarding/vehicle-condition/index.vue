@@ -6,7 +6,7 @@
            
            <div class=" w-full flex flex-col items-start space-y-4">
              <p class=" font-pnova text-[22px] leading-[24px] font-bold text-tertiary">
-                Step 1 of 4:
+                Step 2 of 4:
              </p>
              <p class=" text-white font-extrabold font-pnova text-[64px] leading-[70px]">
                 Tell us more about your vehicle<span class=" text-tertiary">.</span>
@@ -25,7 +25,7 @@
 
           <!-- Right -->
           <div class=" w-full relative max-w-[670px] pb-28 hidden md:block">
-              <UICirclesContainerTwo  ref="UICirclesContaineroneRef" :animation="animation" photo="https://cdn.mintlist.com/consumer/girl-car-1.png" />
+              <UICirclesContainerTwo  ref="UICirclesContaineroneRef" :animation="animation"  photo="https://cdn.mintlist.com/consumer/girl-car-2.png" />
           </div>
         </div>
     </Container>
@@ -39,15 +39,7 @@
   const router = useRouter();
   const animation = ref('animation-from-bottom')
   const Next = () => {
-   if(step.value === 1) {
-    step.value = 2;
-    return;
-   }
-   animation.value = "animation-from-top";
-   Direction.value = 1;
-   setTimeout(()=>{
-    router.push('/onboarding/vehicle-condition')
-   },600)
+   step.value = 2;
   }
   const Back = () => {
 
