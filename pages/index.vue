@@ -12,9 +12,7 @@
               Let's get started! 
             </p>
             <div class=" w-full">
-              <button @click="Next" class=" h-[54px] w-full rounded-full bg-primary text-center text-lg text-white font-bold border-primary hover:bg-[#ab2448] duration-300">
-                Next
-              </button>
+               <UIBaseButton @click="Next"   class=" h-[54px] w-full rounded-full bg-primary text-center text-lg text-white font-bold border-primary hover:bg-[#ab2448] duration-300">Next</UIBaseButton> 
             </div>
            <div class=" pt-20 w-full">
              <Footer />
@@ -31,14 +29,14 @@
 </template>
 
 <script setup lang="ts">
-  const counter = useDirection();
+  const Direction = useDirection();
   const router = useRouter();
   const animation = ref('animation-from-bottom')
   const Next = () => {
    animation.value = "animation-from-top";
-   counter.value = 1;
+   Direction.value = 1;
    setTimeout(()=>{
-    router.push('/about')
+    router.push('/onboarding/vehicle-info')
    },600)
   }
 
