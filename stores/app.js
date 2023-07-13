@@ -65,6 +65,14 @@ export const useAppStore = defineStore("app", () => {
         },
       ],
     },
+    whats_included:{
+      working_keys:'',
+      service_record:'',
+      factory_wheels:'',
+      wheel_condition:'',
+      tire_type:'',
+      confirm_tire:''
+    }
   });
 
   //reset form
@@ -134,6 +142,14 @@ export const useAppStore = defineStore("app", () => {
         },
       ],
     };
+    form.value.whats_included={
+      working_keys:'',
+      service_record:'',
+      factory_wheels:'',
+      wheel_condition:'',
+      tire_type:'',
+      confirm_tire:''
+    }
   }
 
   return { form, resetForm };

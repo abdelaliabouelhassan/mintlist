@@ -6,7 +6,7 @@
            
            <div class=" w-full flex flex-col items-start space-y-4">
              <p class=" font-pnova text-[22px] leading-[24px] font-bold text-tertiary">
-                Step 2 of 4:
+                Step 3 of 4:
              </p>
              <p class=" text-white font-extrabold font-pnova text-[64px] leading-[70px]">
                What kind of condition is your vehicle in<span class=" text-tertiary">?</span>
@@ -39,9 +39,9 @@
 </template>
 
 <script setup lang="ts">
-  import Step1 from "@/components/partials/onboarding/vehicle-condition/Step1.vue"
-  import Step2 from "@/components/partials/onboarding/vehicle-condition/Step2.vue"
-  import Step3 from "@/components/partials/onboarding/vehicle-condition/Step3.vue"
+  import Step1 from "@/components/partials/onboarding/whats-included/Step1.vue"
+  import Step2 from "@/components/partials/onboarding/whats-included/Step2.vue"
+  import Step3 from "@/components/partials/onboarding/whats-included/Step3.vue"
   import { useAppStore } from '@/stores/app';
   const store = useAppStore();
   const step = ref(1);
@@ -55,7 +55,7 @@
       animation.value = "animation-from-top";
       Direction.value = 1;
       setTimeout(()=>{
-      router.push('/onboarding/vehicle-info/?returnFromNext=1')
+      router.push('/onboarding/vehicle-info')
       },600)
    }
   }
@@ -68,7 +68,7 @@
     animation.value = "animation-from-top";
    Direction.value = 0;
    setTimeout(()=>{
-    router.push('/onboarding/vehicle-info/?returnFromNext=1')
+    router.push('/onboarding/vehicle-condition/?returnFromNext=1')
    },600)
   }
 

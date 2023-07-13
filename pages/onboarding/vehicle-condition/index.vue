@@ -75,7 +75,7 @@
    onMounted(()=>{
       //returnFromNext 
       if(router.currentRoute.value.query.returnFromNext) {
-      //  step.value = 2;
+        step.value = 3;
       }
   })
 
