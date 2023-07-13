@@ -57,7 +57,7 @@
                     <span style="bottom: 10px;color: rgb(72, 205, 206);font: 700 300px / 330px proxima-nova, sans-serif;position: absolute;right: 0px;transform: translateY(20%);z-index: 0;">3</span>
                 </div>
                 <div class=" relative w-full bg-[#36bcbc] rounded-lg pt-[15px] space-y-4 px-[30px] pb-[25px] flex flex-col items-center">
-                    <img src="	https://cdn.mintlist.com/consumer/cash-out.png" class=" h-[120px]  z-10 relative" alt="">
+                    <img src="https://cdn.mintlist.com/consumer/cash-out.png" class=" h-[120px]  z-10 relative" alt="">
                     <span class=" relative  z-10 text-[#2f2f2f] text-lg font-bold font-pnova text-center">Cash out or trade in</span>
                     <p class=" relative z-10 max-w-[230px] text-sm text-black text-center font-normal font-pnova pb-10">
                          When you accept your offer, you'll get fast payment with guaranteed funds in as little as 24 hours or you could trade in to another car on MintList and save on tax.

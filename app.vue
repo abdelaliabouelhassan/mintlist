@@ -20,9 +20,9 @@ onMounted(()=>{
          const form = JSON.parse(localStorage.getItem('form'));
          store.$state.form = form;
     }
-   // if(Step.value === 0) {
-   //    Direction.value = 0;
-   //    router.push('/');
-   // }
+   if(Step.value === 0) {
+      Direction.value = 0;
+      router.push('/');
+   }
 })
 </script>
