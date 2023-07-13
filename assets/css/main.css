@@ -220,3 +220,32 @@ input[type=checkbox]:disabled, input[type=checkbox]:disabled {
   opacity: 1
 }
 
+
+
+
+ .financeOptionsWrapper  input[type=radio], .financeOptionsWrapper  input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #6b6b6b;
+  border-radius: 100%;
+  cursor: pointer;
+  height: 20px;
+  position: relative;
+  width: 20px
+}
+
+ .financeOptionsWrapper  input[type=radio]:checked, .financeOptionsWrapper  input[type=radio]:checked {
+  border: 1px solid #fff
+}
+
+ .financeOptionsWrapper  input[type=radio]:checked:before, .financeOptionsWrapper  input[type=radio]:checked:before {
+  background-color: #fff;
+  border-radius: 100%;
+  content: "";
+  height: 12px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  width: 12px
+}

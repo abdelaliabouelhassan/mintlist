@@ -7,32 +7,32 @@
              <UIBaseButton @click="$emit('Back')"  class=" text-white bg-[#6b6b6b] rounded-[0.75em] text-lg font-bold py-[14px] px-8 border border-[#6b6b6b] hover:bg-tertiary  hover:border-tertiary">Back</UIBaseButton> 
         </div>
         <p class=" text-white text-lg font-bold font-pnova">
-           Does your vehicle include factory wheels?
+           Does your vehicle include an extra set of tires (no wheels)?
         </p>
         <p class=" text-[#fafafa] text-sm font-normal font-pnova">
             Please select one
         </p>
         <div class=" w-full flex flex-col items-start space-y-4 pt-4 relative">
            <div class=" w-full flex flex-col items-start space-y-4" v-for="(option,index,key) in options" :key="key">
-             <div :class="{'bg-[#36bbbc]':store.$state.form.whats_included.factory_wheels === option.value,'bg-[#fafafa]':store.$state.form.whats_included.factory_wheels != option.value}" class=" w-full  rounded-[4px] p-4 py-4 cursor-pointer" @click="Select(option)">
+             <div :class="{'bg-[#36bbbc]':store.$state.form.whats_included.extra_set === option.value,'bg-[#fafafa]':store.$state.form.whats_included.extra_set != option.value}" class=" w-full  rounded-[4px] p-4 py-4 cursor-pointer" @click="Select(option)">
                 <div class=" w-full flex items-center ">
                     <div  class="radioButton isTickButton mt-1.5">
                         <label class="label">
-                            <input data-v-7dc0630a="" :checked="store.$state.form.whats_included.factory_wheels === option.value"  name="factory_wheels" id="radio-0" type="radio" class="">
+                            <input data-v-7dc0630a="" :checked="store.$state.form.whats_included.extra_set === option.value"  name="extra_set" id="radio-0" type="radio" class="">
                         </label>
                     </div>
-                    <div class=" flex flex-col items-start space-y-px " :class="{'text-white':store.$state.form.whats_included.factory_wheels === option.value,'text-black':store.$state.form.whats_included.factory_wheels != option.value}">
+                    <div class=" flex flex-col items-start space-y-px " :class="{'text-white':store.$state.form.whats_included.extra_set === option.value,'text-black':store.$state.form.whats_included.extra_set != option.value}">
                         <span class="  text-lg font-normal font-pnova">{{option.title}}</span>
                     </div>
                 </div>
             </div>
-            <div class=" px-6 space-y-2" v-if="option.value === 'yes' && store.$state.form.whats_included.factory_wheels === 'yes'">
+            <div class=" px-6 space-y-2" v-if="option.value === 'yes' && store.$state.form.whats_included.extra_set === 'yes'">
                <div class=" flex flex-col items-start space-y-2">
                  <span class=" text-white text-lg font-bold font-pnova">Wheel Condition:</span>
                  <div class=" flex items-start space-y-2 flex-col">
                     <div class=" flex items-center gap-4"  v-for="(item,index,key) in WheelCondition" :key="key">
-                        <input type="radio" class=" mb-1" name="WheelCondition" :id="item.value" :value="item.value" @click="store.$state.form.whats_included.factory_wheels_options.wheel_condition = item.value" :checked="store.$state.form.whats_included.factory_wheels_options.wheel_condition === item.value" >
-                        <label :for="item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
+                        <input type="radio" class=" mb-1" name="extra_set_WheelCondition" :id="'extra_set_ConfirmTire' + item.value" :value="item.value" @click="store.$state.form.whats_included.extra_set_options.wheel_condition = item.value" :checked="store.$state.form.whats_included.extra_set_options.wheel_condition === item.value" >
+                        <label :for="'extra_set_ConfirmTire' + item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
                     </div>
                  </div>
                </div>
@@ -40,8 +40,8 @@
                  <span class=" text-white text-lg font-bold font-pnova">Tire Type:</span>
                  <div class=" flex items-start space-y-2 flex-col">
                     <div class=" flex items-center gap-4"  v-for="(item,index,key) in TireType" :key="key">
-                        <input type="radio" class=" mb-1" name="TireType" :id="item.value" :value="item.value" @click="store.$state.form.whats_included.factory_wheels_options.tire_type = item.value" :checked="store.$state.form.whats_included.factory_wheels_options.tire_type === item.value">
-                        <label :for="item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
+                        <input type="radio" class=" mb-1" name="extra_set_TireType" :id="'extra_set_ConfirmTire' + item.value" :value="item.value" @click="store.$state.form.whats_included.extra_set_options.tire_type = item.value" :checked="store.$state.form.whats_included.extra_set_options.tire_type === item.value">
+                        <label :for="'extra_set_ConfirmTire' + item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
                     </div>
                  </div>
                </div>
@@ -49,8 +49,8 @@
                  <span class=" text-white text-lg font-bold font-pnova">Please confirm tire set:</span>
                  <div class=" flex items-start space-y-2 flex-col">
                     <div class=" flex items-center gap-4"  v-for="(item,index,key) in ConfirmTire" :key="key">
-                        <input type="radio" class=" mb-1" name="ConfirmTire" :id="item.value" :value="item.value" @click="store.$state.form.whats_included.factory_wheels_options.confirm_tire = item.value" :checked="store.$state.form.whats_included.factory_wheels_options.confirm_tire === item.value">
-                        <label :for="item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
+                        <input type="radio" class=" mb-1" name="extra_set_ConfirmTire" :id="'extra_set_ConfirmTire' + item.value" :value="item.value" @click="store.$state.form.whats_included.extra_set_options.confirm_tire = item.value" :checked="store.$state.form.whats_included.extra_set_options.confirm_tire === item.value">
+                        <label :for="'extra_set_ConfirmTire' + item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
                     </div>
                  </div>
                </div>
@@ -81,11 +81,11 @@
     
     const options = ref([
         {
-            title:'Yes - factory wheels included.',
+            title:'Yes - extra set of tires included.',
             value:'yes',
         },
         {
-            title:'No - factory wheels not included.',
+            title:'No - extra set of tires not included.',
             value:'no'
         },
     ])
@@ -138,7 +138,7 @@
     const selectedOption = ref('')
 
     const Select = (option) => {
-        store.$state.form.whats_included.factory_wheels = option.value
+        store.$state.form.whats_included.extra_set = option.value
     }
 
     watch(()=>store.$state.form.whats_included,()=>{
@@ -147,9 +147,9 @@
      
 
      const isYesSelectedAndOptions = computed(()=>{
-        if(store.$state.form.whats_included.factory_wheels === 'yes'){
-            return store.$state.form.whats_included.factory_wheels_options.confirm_tire !== '' &&  store.$state.form.whats_included.factory_wheels_options.confirm_tire !== '' && store.$state.form.whats_included.factory_wheels_options.tire_type !== ''  
+        if(store.$state.form.whats_included.extra_set === 'yes'){
+            return store.$state.form.whats_included.extra_set_options.confirm_tire !== '' &&  store.$state.form.whats_included.extra_set_options.confirm_tire !== '' && store.$state.form.whats_included.extra_set_options.tire_type !== ''  
         }
-        return store.$state.form.whats_included.factory_wheels !== '';
+        return store.$state.form.whats_included.extra_set !== '';
      })
 </script>

@@ -7,32 +7,32 @@
              <UIBaseButton @click="$emit('Back')"  class=" text-white bg-[#6b6b6b] rounded-[0.75em] text-lg font-bold py-[14px] px-8 border border-[#6b6b6b] hover:bg-tertiary  hover:border-tertiary">Back</UIBaseButton> 
         </div>
         <p class=" text-white text-lg font-bold font-pnova">
-           Does your vehicle include factory wheels?
+           Does your vehicle include aftermarket wheels?
         </p>
         <p class=" text-[#fafafa] text-sm font-normal font-pnova">
             Please select one
         </p>
         <div class=" w-full flex flex-col items-start space-y-4 pt-4 relative">
            <div class=" w-full flex flex-col items-start space-y-4" v-for="(option,index,key) in options" :key="key">
-             <div :class="{'bg-[#36bbbc]':store.$state.form.whats_included.factory_wheels === option.value,'bg-[#fafafa]':store.$state.form.whats_included.factory_wheels != option.value}" class=" w-full  rounded-[4px] p-4 py-4 cursor-pointer" @click="Select(option)">
+             <div :class="{'bg-[#36bbbc]':store.$state.form.whats_included.aftermarket_wheels === option.value,'bg-[#fafafa]':store.$state.form.whats_included.aftermarket_wheels != option.value}" class=" w-full  rounded-[4px] p-4 py-4 cursor-pointer" @click="Select(option)">
                 <div class=" w-full flex items-center ">
                     <div  class="radioButton isTickButton mt-1.5">
                         <label class="label">
-                            <input data-v-7dc0630a="" :checked="store.$state.form.whats_included.factory_wheels === option.value"  name="factory_wheels" id="radio-0" type="radio" class="">
+                            <input data-v-7dc0630a="" :checked="store.$state.form.whats_included.aftermarket_wheels === option.value"  name="aftermarket_wheels" id="radio-0" type="radio" class="">
                         </label>
                     </div>
-                    <div class=" flex flex-col items-start space-y-px " :class="{'text-white':store.$state.form.whats_included.factory_wheels === option.value,'text-black':store.$state.form.whats_included.factory_wheels != option.value}">
+                    <div class=" flex flex-col items-start space-y-px " :class="{'text-white':store.$state.form.whats_included.aftermarket_wheels === option.value,'text-black':store.$state.form.whats_included.aftermarket_wheels != option.value}">
                         <span class="  text-lg font-normal font-pnova">{{option.title}}</span>
                     </div>
                 </div>
             </div>
-            <div class=" px-6 space-y-2" v-if="option.value === 'yes' && store.$state.form.whats_included.factory_wheels === 'yes'">
+            <div class=" px-6 space-y-2" v-if="option.value === 'yes' && store.$state.form.whats_included.aftermarket_wheels === 'yes'">
                <div class=" flex flex-col items-start space-y-2">
                  <span class=" text-white text-lg font-bold font-pnova">Wheel Condition:</span>
                  <div class=" flex items-start space-y-2 flex-col">
                     <div class=" flex items-center gap-4"  v-for="(item,index,key) in WheelCondition" :key="key">
-                        <input type="radio" class=" mb-1" name="WheelCondition" :id="item.value" :value="item.value" @click="store.$state.form.whats_included.factory_wheels_options.wheel_condition = item.value" :checked="store.$state.form.whats_included.factory_wheels_options.wheel_condition === item.value" >
-                        <label :for="item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
+                        <input type="radio" class=" mb-1" name="aftermarket_wheels_WheelCondition" :id="'aftermarket_wheels_ConfirmTire' + item.value" :value="item.value" @click="store.$state.form.whats_included.aftermarket_wheels_options.wheel_condition = item.value" :checked="store.$state.form.whats_included.aftermarket_wheels_options.wheel_condition === item.value" >
+                        <label :for="'aftermarket_wheels_ConfirmTire' + item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
                     </div>
                  </div>
                </div>
@@ -40,8 +40,8 @@
                  <span class=" text-white text-lg font-bold font-pnova">Tire Type:</span>
                  <div class=" flex items-start space-y-2 flex-col">
                     <div class=" flex items-center gap-4"  v-for="(item,index,key) in TireType" :key="key">
-                        <input type="radio" class=" mb-1" name="TireType" :id="item.value" :value="item.value" @click="store.$state.form.whats_included.factory_wheels_options.tire_type = item.value" :checked="store.$state.form.whats_included.factory_wheels_options.tire_type === item.value">
-                        <label :for="item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
+                        <input type="radio" class=" mb-1" name="aftermarket_wheels_TireType" :id="'aftermarket_wheels_ConfirmTire' + item.value" :value="item.value" @click="store.$state.form.whats_included.aftermarket_wheels_options.tire_type = item.value" :checked="store.$state.form.whats_included.aftermarket_wheels_options.tire_type === item.value">
+                        <label :for="'aftermarket_wheels_ConfirmTire' + item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
                     </div>
                  </div>
                </div>
@@ -49,8 +49,8 @@
                  <span class=" text-white text-lg font-bold font-pnova">Please confirm tire set:</span>
                  <div class=" flex items-start space-y-2 flex-col">
                     <div class=" flex items-center gap-4"  v-for="(item,index,key) in ConfirmTire" :key="key">
-                        <input type="radio" class=" mb-1" name="ConfirmTire" :id="item.value" :value="item.value" @click="store.$state.form.whats_included.factory_wheels_options.confirm_tire = item.value" :checked="store.$state.form.whats_included.factory_wheels_options.confirm_tire === item.value">
-                        <label :for="item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
+                        <input type="radio" class=" mb-1" name="aftermarket_wheels_ConfirmTire" :id="'aftermarket_wheels_ConfirmTire' + item.value" :value="item.value" @click="store.$state.form.whats_included.aftermarket_wheels_options.confirm_tire = item.value" :checked="store.$state.form.whats_included.aftermarket_wheels_options.confirm_tire === item.value">
+                        <label :for="'aftermarket_wheels_ConfirmTire' + item.value" class=" text-sm text-[#d9d9d9] font-pnova">{{item.title}}</label>
                     </div>
                  </div>
                </div>
@@ -81,11 +81,11 @@
     
     const options = ref([
         {
-            title:'Yes - factory wheels included.',
+            title:'Yes - aftermarket wheels included.',
             value:'yes',
         },
         {
-            title:'No - factory wheels not included.',
+            title:'No - aftermarket wheels not included.',
             value:'no'
         },
     ])
@@ -138,7 +138,7 @@
     const selectedOption = ref('')
 
     const Select = (option) => {
-        store.$state.form.whats_included.factory_wheels = option.value
+        store.$state.form.whats_included.aftermarket_wheels = option.value
     }
 
     watch(()=>store.$state.form.whats_included,()=>{
@@ -147,9 +147,9 @@
      
 
      const isYesSelectedAndOptions = computed(()=>{
-        if(store.$state.form.whats_included.factory_wheels === 'yes'){
-            return store.$state.form.whats_included.factory_wheels_options.confirm_tire !== '' &&  store.$state.form.whats_included.factory_wheels_options.confirm_tire !== '' && store.$state.form.whats_included.factory_wheels_options.tire_type !== ''  
+        if(store.$state.form.whats_included.aftermarket_wheels === 'yes'){
+            return store.$state.form.whats_included.aftermarket_wheels_options.confirm_tire !== '' &&  store.$state.form.whats_included.aftermarket_wheels_options.confirm_tire !== '' && store.$state.form.whats_included.aftermarket_wheels_options.tire_type !== ''  
         }
-        return store.$state.form.whats_included.factory_wheels !== '';
+        return store.$state.form.whats_included.aftermarket_wheels !== '';
      })
 </script>

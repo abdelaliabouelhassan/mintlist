@@ -69,9 +69,26 @@ export const useAppStore = defineStore("app", () => {
       working_keys:'',
       service_record:'',
       factory_wheels:'',
-      wheel_condition:'',
-      tire_type:'',
-      confirm_tire:''
+      factory_wheels_options:{
+        wheel_condition:'',
+        tire_type:'',
+        confirm_tire:''
+      },
+      aftermarket_wheels:'',
+      aftermarket_wheels_options:{
+        wheel_condition:'',
+        tire_type:'',
+        confirm_tire:''
+      },
+      extra_set:'',
+      extra_set_options:{
+        wheel_condition:'',
+        tire_type:'',
+        confirm_tire:''
+      },
+    },
+    vehicle_ownership:{
+      ownership:'',
     }
   });
 
@@ -146,9 +163,26 @@ export const useAppStore = defineStore("app", () => {
       working_keys:'',
       service_record:'',
       factory_wheels:'',
-      wheel_condition:'',
-      tire_type:'',
-      confirm_tire:''
+      factory_wheels_options:{
+        wheel_condition:'',
+        tire_type:'',
+        confirm_tire:''
+      },
+      aftermarket_wheels:'',
+      aftermarket_wheels_options:{
+        wheel_condition:'',
+        tire_type:'',
+        confirm_tire:''
+      },
+      extra_set:'',
+      extra_set_options:{
+        wheel_condition:'',
+        tire_type:'',
+        confirm_tire:''
+      },
+    }
+    form.value.vehicle_ownership={
+      ownership:'',
     }
   }
 
