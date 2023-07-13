@@ -32,7 +32,7 @@
 
           <!-- Right -->
           <div class=" w-full relative max-w-[670px] pb-28 hidden md:block">
-              <UICirclesContainerTwo  ref="UICirclesContaineroneRef" :animation="animation"  photo="https://cdn.mintlist.com/consumer/girl-car-2.png" />
+              <UICirclesContainerThree  ref="UICirclesContaineroneRef" :animation="animation"  photo="https://cdn.mintlist.com/consumer/girl-car-phone-1.png" />
           </div>
         </div>
     </Container>
