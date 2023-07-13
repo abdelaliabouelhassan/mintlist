@@ -56,7 +56,7 @@
       Direction.value = 1;
       setTimeout(()=>{
       router.push('/onboarding/vehicle-info')
-      },600)
+      },0)
    }
   }
   const Back = () => {
@@ -69,7 +69,7 @@
    Direction.value = 0;
    setTimeout(()=>{
     router.push('/onboarding/vehicle-condition/?returnFromNext=1')
-   },600)
+   },0)
   }
 
    onMounted(()=>{

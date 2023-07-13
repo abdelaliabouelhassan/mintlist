@@ -55,7 +55,7 @@
    Direction.value = 1;
    setTimeout(()=>{
     router.push('/onboarding/vehicle-condition')
-   },600)
+   },0)
   }
   const Back = () => {
 
@@ -67,7 +67,7 @@
    Direction.value = 0;
    setTimeout(()=>{
     router.push('/')
-   },600)
+   },0)
   }
 
 

@@ -39,6 +39,6 @@
    Direction.value = 1;
    setTimeout(()=>{
     router.push('/onboarding/vehicle-info')
-   },600)
+   },0)
   }  
 </script>
